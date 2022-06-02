@@ -19,3 +19,11 @@ After that launch vim and run **:PlugInstall**
 git clone https://github.com/github/copilot.vim.git \~/.config/nvim/pack/github/start/copilot.vim
 ```
 Then launch nvim and run :Copilot setup
+
+#### Zsh configs
+alias zshconfig="nvim ~/.zshrc"
+alias source-zsh="source ~/.zshrc"
+alias ohmyzsh="mate ~/.oh-my-zsh"
+alias nvim="~/Apps/nvim/bin/nvim"
+alias nvimcfg="nvim ~/.config/nvim/init.vim"
+alias nvimdir="cd ~/.config/nvim"

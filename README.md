@@ -13,3 +13,8 @@ iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
 ```
 
 After that launch vim and run **:PlugInstall**
+
+### To install COPILOT do this :
+```
+git clone https://github.com/github/copilot.vim.git \~/.config/nvim/pack/github/start/copilot.vim
+```

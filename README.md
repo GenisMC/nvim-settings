@@ -18,3 +18,4 @@ After that launch vim and run **:PlugInstall**
 ```
 git clone https://github.com/github/copilot.vim.git \~/.config/nvim/pack/github/start/copilot.vim
 ```
+Then launch nvim and run :Copilot setup

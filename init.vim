@@ -1,8 +1,8 @@
 call plug#begin()
-Plug 'junegunn/goyo.vim' | Plug 'junegunn/limelight.vim'
+"Plug 'junegunn/goyo.vim' | Plug 'junegunn/limelight.vim'
 Plug 'ctrlpvim/ctrlp.vim' | Plug 'neoclide/coc.nvim', {'branch': 'release'} 
-Plug 'vim-scripts/fountain.vim' | Plug 'tpope/vim-markdown' | Plug 'ap/vim-css-color'
-Plug 'sainnhe/sonokai'
+Plug 'vim-scripts/fountain.vim' | Plug 'tpope/vim-markdown' | Plug 'ap/vim-css-color' 
+Plug 'sainnhe/sonokai' | Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 "General Settings
@@ -10,6 +10,10 @@ set encoding=UTF-8 nobackup nowritebackup nocursorline splitbelow splitright wil
 set shiftwidth=4 autoindent smartindent tabstop=4 softtabstop=4 expandtab spell spelllang=en_us
 set fillchars+=eob:\ 
 au BufRead,BufNewFile *.fountain set filetype=fountain
+
+"hide bottom bar info
+set noshowmode  " to get rid of thing like --INSERT--
+set noshowcmd  " to get rid of display of last command
 
 "Status Line
 set statusline=
@@ -39,6 +43,8 @@ nnoremap <Up>    :resize -2<CR>
 nnoremap <Down>  :resize +2<CR>
 nnoremap <Left>  :vertical resize +2<CR>
 nnoremap <Right> :vertical resize -2<CR>
+nnoremap J 5j
+nnoremap K 5k
 " Pane changing
 map <C-l> <C-w>l
 map <C-h> <C-w>h
@@ -52,6 +58,7 @@ tnoremap <C-\> <C-l> <C-w>l
 tnoremap <C-\> <C-h> <C-w>h
 tnoremap <C-\> <C-j> <C-w>j
 tnoremap <C-\> <C-k> <C-w>k
+
 
 "Color Settings
         if has('termguicolors')
@@ -71,7 +78,7 @@ hi! Normal ctermbg=NONE guibg=NONE
 hi! NonText ctermbg=NONE guibg=NONE guifg=NONE ctermfg=NONE
 
 "set default shell powershell
-set shell=PowerShell
+"set shell=PowerShell ** breaks vim plug ** 
 
 "Goyo Settings
 function! s:goyo_enter()

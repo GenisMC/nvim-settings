@@ -3,6 +3,8 @@ call plug#begin()
 Plug 'ctrlpvim/ctrlp.vim' | Plug 'neoclide/coc.nvim', {'branch': 'release'} 
 Plug 'vim-scripts/fountain.vim' | Plug 'tpope/vim-markdown' | Plug 'ap/vim-css-color' 
 Plug 'sainnhe/sonokai' | Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
+Plug 'kyazdani42/nvim-web-devicons' | Plug 'folke/trouble.nvim'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
 call plug#end()
 
 "General Settings
@@ -50,7 +52,8 @@ map <C-l> <C-w>l
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
-" Split termial
+" terminal
+nnoremap <leader>ot :terminal<CR>
 nnoremap <leader>vt :vsplit <bar> :term<CR>
 nnoremap <leader>ht :split <bar> :term<CR>
 tnoremap <Esc> <C-\><C-n>
@@ -58,7 +61,19 @@ tnoremap <C-\> <C-l> <C-w>l
 tnoremap <C-\> <C-h> <C-w>h
 tnoremap <C-\> <C-j> <C-w>j
 tnoremap <C-\> <C-k> <C-w>k
-
+"Tabs
+nnoremap <leader>t :tabnew<CR>
+nnoremap <leader>T :tabclose<CR>
+nnoremap <leader>t0 :tabfirst<CR>
+nnoremap <leader>t$ :tablast<CR>
+nnoremap <leader>t< :tabmove -<CR>
+nnoremap <leader>t> :tabmove +<CR>
+" Netrw settings
+let g:netrw_liststyle= 3
+let g:netrw_preview= 1
+set nosplitright
+let g:netrw_altv= 1
+let g:netrw_preview_size= 20
 
 "Color Settings
         if has('termguicolors')

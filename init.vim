@@ -2,7 +2,7 @@ call plug#begin()
 "Plug 'junegunn/goyo.vim' | Plug 'junegunn/limelight.vim'
 Plug 'ctrlpvim/ctrlp.vim' | Plug 'neoclide/coc.nvim', {'branch': 'release'} 
 Plug 'vim-scripts/fountain.vim' | Plug 'tpope/vim-markdown' | Plug 'ap/vim-css-color' 
-Plug 'sainnhe/sonokai' | Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
+Plug 'sainnhe/sonokai' | Plug 'overcache/NeoSolarized' | Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 Plug 'kyazdani42/nvim-web-devicons' | Plug 'folke/trouble.nvim'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
 call plug#end()
@@ -12,6 +12,8 @@ set encoding=UTF-8 nobackup nowritebackup nocursorline splitbelow splitright wil
 set shiftwidth=4 autoindent smartindent tabstop=4 softtabstop=4 expandtab spell spelllang=en_us
 set fillchars+=eob:\ 
 au BufRead,BufNewFile *.fountain set filetype=fountain
+" Use Windows clipboard to copy and to paste
+set clipboard^=unnamed,unnamedplus
 
 "hide bottom bar info
 set noshowmode  " to get rid of thing like --INSERT--
@@ -74,6 +76,8 @@ let g:netrw_preview= 1
 set nosplitright
 let g:netrw_altv= 1
 let g:netrw_preview_size= 20
+"nohl
+nnoremap <leader>/ :nohl<CR>
 
 "Color Settings
         if has('termguicolors')
@@ -82,8 +86,9 @@ let g:netrw_preview_size= 20
 
         let g:sonokai_style = 'atlantis'
         let g:sonokai_better_performance = 1
+        runtime ./colors/NeoSolarized.vim
 
-        colorscheme sonokai
+        colorscheme NeoSolarized
 
 set background=dark
 set termguicolors

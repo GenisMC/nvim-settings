@@ -3,8 +3,9 @@ call plug#begin()
 Plug 'ctrlpvim/ctrlp.vim' | Plug 'neoclide/coc.nvim', {'branch': 'release'} 
 Plug 'vim-scripts/fountain.vim' | Plug 'tpope/vim-markdown' | Plug 'ap/vim-css-color' 
 Plug 'sainnhe/sonokai' | Plug 'overcache/NeoSolarized' | Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
-Plug 'kyazdani42/nvim-web-devicons' | Plug 'folke/trouble.nvim'
+Plug 'kyazdani42/nvim-web-devicons' | Plug 'folke/trouble.nvim' | Plug 'APZelos/blamer.nvim'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
+Plug 'tpope/vim-fugitive' 
 call plug#end()
 
 "General Settings
@@ -31,6 +32,11 @@ set statusline+=\ %r
 set statusline+=%#IncSearch#
 set statusline+=\ %l/%L
 set statusline+=\ [%c]
+
+"Nvim blamer
+let g:blamer_enabled = 1
+let g:blamer_delay = 100
+let g:blamer_prefix = ' # '
 
 "Key-bindings
 let mapleader=" "

@@ -1,11 +1,13 @@
 call plug#begin()
-"Plug 'junegunn/goyo.vim' | Plug 'junegunn/limelight.vim'
+Plug 'junegunn/goyo.vim' | Plug 'junegunn/limelight.vim'
 Plug 'ctrlpvim/ctrlp.vim' | Plug 'neoclide/coc.nvim', {'branch': 'release'} 
 Plug 'vim-scripts/fountain.vim' | Plug 'tpope/vim-markdown' | Plug 'ap/vim-css-color' 
 Plug 'sainnhe/sonokai' | Plug 'overcache/NeoSolarized' | Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 Plug 'kyazdani42/nvim-web-devicons' | Plug 'folke/trouble.nvim' | Plug 'APZelos/blamer.nvim'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
-Plug 'tpope/vim-fugitive' 
+Plug 'tpope/vim-fugitive' | Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-lua/plenary.nvim' | Plug 'nvim-telescope/telescope.nvim' | Plug 'preservim/nerdtree'
+Plug 'sunjon/shade.nvim' | Plug 'sudormrfbin/cheatsheet.nvim' | Plug 'nvim-lua/popup.nvim'
 call plug#end()
 
 "General Settings
@@ -47,7 +49,7 @@ nnoremap <leader>w :w<CR>
 nnoremap <leader>x :x<CR>
 nnoremap <leader>Q :q!<CR>
 nnoremap <leader><Space> :CtrlP<CR>
-nnoremap <leader>e :Sex!<CR>
+"nnoremap <leader>e :Sex!<CR>
 nnoremap <leader>z :set invrnu invnu<CR>
 nnoremap <Up>    :resize -2<CR>
 nnoremap <Down>  :resize +2<CR>
@@ -76,12 +78,23 @@ nnoremap <leader>t0 :tabfirst<CR>
 nnoremap <leader>t$ :tablast<CR>
 nnoremap <leader>t< :tabmove -<CR>
 nnoremap <leader>t> :tabmove +<CR>
+
 " Netrw settings
 let g:netrw_liststyle= 3
 let g:netrw_preview= 1
 set nosplitright
 let g:netrw_altv= 1
 let g:netrw_preview_size= 20
+
+" Nerd tree
+nnoremap <leader>ef :NERDTreeFocus<CR>
+"nnoremap <C-e> :NERDTree<CR>
+nnoremap <leader>et :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+let g:NERDTreeMapCustomOpen = 'l'
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
 "nohl
 nnoremap <leader>/ :nohl<CR>
 
@@ -92,9 +105,17 @@ nnoremap <leader>/ :nohl<CR>
 
         let g:sonokai_style = 'atlantis'
         let g:sonokai_better_performance = 1
-        runtime ./colors/NeoSolarized.vim
+        "runtime ./colors/NeoSolarized.vim
 
-        colorscheme NeoSolarized
+        colorscheme sonokai
+
+
+
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 set background=dark
 set termguicolors
@@ -107,6 +128,7 @@ hi! NonText ctermbg=NONE guibg=NONE guifg=NONE ctermfg=NONE
 "set shell=PowerShell ** breaks vim plug ** 
 
 "Goyo Settings
+nnoremap <leader>g :Goyo<CR>
 function! s:goyo_enter()
   set noshowmode
   set noshowcmd

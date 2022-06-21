@@ -1,5 +1,5 @@
 call plug#begin()
-Plug 'junegunn/goyo.vim' | Plug 'junegunn/limelight.vim'
+Plug 'junegunn/goyo.vim' | Plug 'junegunn/limelight.vim' | Plug 'github/copilot.vim'
 Plug 'ctrlpvim/ctrlp.vim' | Plug 'neoclide/coc.nvim', {'branch': 'release'} 
 Plug 'vim-scripts/fountain.vim' | Plug 'tpope/vim-markdown' | Plug 'ap/vim-css-color' 
 Plug 'sainnhe/sonokai' | Plug 'overcache/NeoSolarized' | Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
